@@ -1,10 +1,10 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 
-urlpatterns = [
-    # Examples:
-    # url(r'^$', 'imgret.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+from images.views import ImageView
 
+
+urlpatterns = [
+    url(r'^$', ImageView.as_view(), name="home"),
     url(r'^admin/', include(admin.site.urls)),
 ]

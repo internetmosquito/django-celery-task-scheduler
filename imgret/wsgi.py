@@ -1,5 +1,5 @@
 """
-WSGI config for picha project.
+WSGI config for imgret project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
