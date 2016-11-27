@@ -14,7 +14,6 @@ def save_latest_images(image_file=None, image_path=None):
     :param image_path: The place to store images, if empty it defaults to the one in settings
     """
     from images.tasks import logger
-    import ipdb; ipdb.set_trace()
     images_file = image_file if image_file else image_settings.IMAGES_FILE
     saved_images_path = image_path if image_path else image_settings.IMAGES_PATH
     # Check if file is present, skip otherwise
