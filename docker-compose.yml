@@ -1,0 +1,25 @@
+version: '2'
+
+services:  
+
+  # Redis
+  redis:
+    image: 'redis:3.0-alpine'
+    command: redis-server
+    ports:
+      - '6379:6379'
+
+  # Django web server
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: web
+    command: ./run_web.sh
+    volumes:
+      - .:/app  # mount current directory inside container
+    ports:
+      - "8000:8000"
+    # set up links so that web knows celery and redis
+    links:
+      - redis
