@@ -32,7 +32,7 @@ While everything can be run locally, it is recommended to use Docker to run the 
 * Docker 1.12.3
 * Docker-compose 1.6.2
 
-## Instalation
+## Setup
 
 You can either choose to install this locally or simply use Docker to set up things for you
 
