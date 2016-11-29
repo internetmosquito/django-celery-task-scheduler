@@ -200,12 +200,19 @@ service supervisor start
 
 You should be able to go now to http://127.0.0.1:8000 and see the same results as before
 
+## LIVE DEMO
+
+A DigitalOcean droplet can be found [here](http://95.85.57.55:8000/)
+
 
 ## Things to improve
 
 * Fix several issues with Docker
 * Add proper dev / production settings scheme
+* Use Fabric to deploy automatically
 * Add CircleCI for Continous Integration
+* Use Gunicorn instead of Django embedded server
+* Fix Docker so app folder is writable by foo user, otherwise Django does not start correctly
 * More tests
 
 Feel free to contact me for questions, toughts, etc...
