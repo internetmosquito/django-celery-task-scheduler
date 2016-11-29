@@ -125,7 +125,32 @@ Again, this depends on whether you want to do this locally or with Docker.
 ### Locally
 
 You will first have to overwrite settings.py file with local_settings.py one, I don't know why this happens 
-but for some reason can do this in the build process.
+but for some reason can do this in the build process. Overwrite the CELERY STUFFF section at bottom of file 
+in imgret/settings.py with the following contents, basically specifies that our redis server is running at 
+localhost:
+
+```
+# CELERY STUFF
+BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Europe/Madrid'
+```
+
+You will need to change the supervisor config file to point to the paths in you local filesystem, thus change
+
+* supervisor/celery_images_beat.conf
+* supervisor/celery_images_worker.conf
+
+Once you've changes the paths, move them to supervisor conf directory
+
+```
+cp supervisor/celery_images_beat.conf /etc/supervisor/conf.d/
+cp supervisor/celery_images_worker.conf /etc/supervisor/conf.d/
+```
+
 
 Make sure db is initialized properly
 
